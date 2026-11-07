@@ -66,7 +66,7 @@ The deployable website is in `dist/`. `docs/screenshots/` is for this README and
 
 ## Deployment
 
-The portfolio has **not yet been deployed**. The intended route is to push this repository to GitHub and import it into Vercel with:
+The portfolio is live at [personal-project-home.vercel.app](https://personal-project-home.vercel.app/). Vercel deploys the connected GitHub repository's `main` branch with:
 
 | Setting | Value |
 | --- | --- |
@@ -76,4 +76,4 @@ The portfolio has **not yet been deployed**. The intended route is to push this 
 | Output Directory | `dist` (override the default) |
 | Install Command | None; there are no dependencies to install |
 
-No `vercel.json` is required when these settings are entered during import. After deployment, open the assigned public URL and recheck the Hero, images, project links, keyboard controls, mobile layout, and browser console before sharing it. No production URL is listed until one has been verified.
+No `vercel.json` is required with these project settings. The public URL was checked in Chromium at desktop, tablet, and mobile viewport sizes, including project interactions, WebGL, reduced motion, images, and browser errors.
