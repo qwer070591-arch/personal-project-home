@@ -1,0 +1,17 @@
+# Local archives, experiments, and QA output
+/.backups/
+/.phase1-backup/
+/.phase2-backup/
+/.phaseh1-backup/
+/.taste-skill/
+/output/
+/portfolio_upgrade_ready/
+/*.png
+/Troubleshooting.md
+
+# Local tooling and editor state
+/.vercel/
+/node_modules/
+*.log
+.DS_Store
+Thumbs.db

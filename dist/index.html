@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050505" />
+    <meta name="description" content="個人前端作品集：NEXUS、NEUROVA、mellow. 與 ISLE &amp; WANDER 四個介面專案。" />
+    <title>Creative Developer — 個人前端作品集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=ui-audit-20261107" />
+    <script src="./main.js" defer></script>
+    <script src="./hero-chrome.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要內容</a>
+    <header class="site-header" id="top">
+      <div class="frame header-layout">
+        <a class="wordmark" href="#top" aria-label="回到首頁">P/F<span>.</span></a>
+        <nav class="main-nav" aria-label="主要導覽">
+          <a href="#work">作品</a>
+          <a href="#about">關於</a>
+          <a href="#skills">技術</a>
+          <a href="#contact">聯絡</a>
+        </nav>
+        <span class="nav-note">個人前端作品集</span>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-scene frame">
+          <div class="hero-sculpture" aria-hidden="true"><div class="sculpture-body">
+            <span class="sculpture-ring sculpture-ring-a"></span>
+            <span class="sculpture-ring sculpture-ring-b"></span>
+            <span class="sculpture-ring sculpture-ring-c"></span>
+            <span class="sculpture-core"></span>
+          </div><canvas class="chrome-canvas" aria-hidden="true"></canvas></div>
+          <div class="hero-heading">
+            <h1 id="hero-title"><span class="title-clip"><span class="title-line">CREATIVE</span></span><span class="title-clip"><span class="title-line title-line-two">DEVELOPER<span class="full-stop">.</span></span></span></h1>
+          </div>
+          <div class="hero-caption"><p>個人前端作品集，探索設計、程式與互動。<br />把想法做成可以感受的介面。</p><a class="hero-cta" href="#work">探索作品 <span aria-hidden="true">↗</span></a></div>
+          <a class="scroll-cue" href="#about"><span>向下捲動</span><span class="scroll-line" aria-hidden="true"></span></a>
+        </div>
+      </section>
+
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="frame about-layout">
+          <div class="about-header"><p class="about-topline">ABOUT ME <span aria-hidden="true">/</span> OPEN TO WORK</p></div>
+          <div class="about-main">
+            <div class="about-intro reveal"><h2 id="about-title" aria-label="Junior Frontend Developer"><span class="line-wrap"><span>JUNIOR</span></span><span class="line-wrap"><span>FRONTEND</span></span><span class="line-wrap"><span>DEVELOPER.</span></span></h2></div>
+            <div class="about-content">
+              <div class="about-story">
+                <p class="about-story-primary reveal">我專注於前端網頁與互動介面開發，以 Vue 3、JavaScript 與 TypeScript 為主要技術，具備響應式網頁設計、元件化開發與狀態管理經驗，致力於打造兼具視覺美感與良好操作體驗的網站。</p>
+                <p class="about-story-secondary reveal">畢業於朝陽科技大學企業管理系，曾從事機械相關實務工作，後跨領域完成「AI 輔助全端程式設計」職業訓練並取得 iCAP 證照。持續透過電商平台、AI 數據儀表板、智慧居家介面及其他個人專案累積前端開發經驗。</p>
+                <p class="about-story-note reveal">熟悉 Git、GitHub 版本控制與 Vercel 部署，並具備 Vitest、Playwright 測試及 AI Coding Tools 輔助開發經驗。目前積極尋找 Junior 前端工程師機會。</p>
+              </div>
+              <dl class="about-facts" aria-label="個人資訊">
+                <div class="about-fact"><dt>CAREER</dt><dd>Junior Frontend Engineer</dd></div>
+                <div class="about-fact"><dt>EDUCATION</dt><dd>朝陽科技大學 · 企業管理系</dd></div>
+                <div class="about-fact"><dt>TRAINING</dt><dd>AI 輔助全端程式設計</dd></div>
+                <div class="about-fact"><dt>CERTIFICATION</dt><dd>iCAP</dd></div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="frame work-opening"><h2 id="work-title" class="reveal"><span>SELECTED</span><span>WORK</span></h2><p class="reveal">從想法出發，<br />讓作品成形。</p></div>
+
+        <span class="project-anchor" id="project-nexus" aria-hidden="true"></span>
+        <span class="project-anchor" id="project-neurova" aria-hidden="true"></span>
+        <span class="project-anchor" id="project-mellow" aria-hidden="true"></span>
+        <span class="project-anchor" id="project-isle" aria-hidden="true"></span>
+        <div class="marquee-showcase" id="work-marquee" aria-label="精選作品">
+          <div class="marquee-lane marquee-lane--left" role="group" aria-label="作品選擇">
+            <div class="marquee-track"><div class="marquee-set">
+              <button class="marquee-card" type="button" data-project="nexus" aria-controls="project-panel" aria-expanded="false"><span class="marquee-card__media"><img src="./assets/nexus.png" alt="" width="1440" height="900" /></span><span class="marquee-card__copy"><strong>NEXUS</strong><small>Vue 3 · 電商展示</small><span class="marquee-card__hint"><span class="marquee-card__hint-desktop">View Project</span><span class="marquee-card__hint-mobile">點擊查看</span></span></span><span class="marquee-card__arrow" aria-hidden="true">↗</span></button>
+              <button class="marquee-card" type="button" data-project="neurova" aria-controls="project-panel" aria-expanded="false"><span class="marquee-card__media"><img src="./assets/neurova.png" alt="" width="1440" height="900" /></span><span class="marquee-card__copy"><strong>NEUROVA</strong><small>Vue 3 · AI 分析</small><span class="marquee-card__hint"><span class="marquee-card__hint-desktop">View Project</span><span class="marquee-card__hint-mobile">點擊查看</span></span></span><span class="marquee-card__arrow" aria-hidden="true">↗</span></button>
+              <button class="marquee-card" type="button" data-project="mellow" aria-controls="project-panel" aria-expanded="false"><span class="marquee-card__media"><img src="./assets/mellow-dark.png" alt="" width="1440" height="900" /></span><span class="marquee-card__copy"><strong>mellow.</strong><small>Vue 3 · 智慧家庭</small><span class="marquee-card__hint"><span class="marquee-card__hint-desktop">View Project</span><span class="marquee-card__hint-mobile">點擊查看</span></span></span><span class="marquee-card__arrow" aria-hidden="true">↗</span></button>
+              <button class="marquee-card" type="button" data-project="isle" aria-controls="project-panel" aria-expanded="false"><span class="marquee-card__media"><img src="./assets/isle-and-wander.jpg" alt="" width="1440" height="900" /></span><span class="marquee-card__copy"><strong>ISLE &amp; WANDER</strong><small>Vue 3 · 旅遊規劃</small><span class="marquee-card__hint"><span class="marquee-card__hint-desktop">View Project</span><span class="marquee-card__hint-mobile">點擊查看</span></span></span><span class="marquee-card__arrow" aria-hidden="true">↗</span></button>
+            </div></div>
+          </div>
+          <div class="marquee-lane marquee-lane--right" aria-hidden="true"><div class="marquee-track"><div class="marquee-set"></div></div></div>
+        </div>
+        <div class="frame work-footnote"><span>選擇作品，查看畫面與細節。</span><div class="work-footnote__actions"><button class="marquee-pause" type="button" aria-controls="work-marquee" hidden>暫停移動</button><span>01 — 04</span></div></div>
+
+        <aside class="project-panel" id="project-panel" role="dialog" aria-modal="false" aria-label="作品詳情" hidden>
+          <div class="project-panel__toolbar"><div class="project-panel__switch" role="group" aria-label="切換作品"><button type="button" data-panel-switch="nexus" aria-pressed="false">NEXUS</button><button type="button" data-panel-switch="neurova" aria-pressed="false">NEUROVA</button><button type="button" data-panel-switch="mellow" aria-pressed="false">mellow.</button><button type="button" data-panel-switch="isle" aria-pressed="false">ISLE &amp; WANDER</button></div><button class="project-panel__close" type="button" aria-label="關閉作品詳情">關閉 <span aria-hidden="true">×</span></button></div>
+          <article class="project-panel__view" data-panel-project="nexus" hidden><div class="project-panel__media"><img src="./assets/nexus.png" alt="NEXUS 電競裝備展示網站的桌面首頁截圖" width="1440" height="900" /></div><div class="project-panel__body"><h3>NEXUS</h3><p class="project-panel__lead">以編輯式視覺呈現電競裝備的展示網站。</p><p>商品探索、互動輪播，以及儲存在瀏覽器中的購物車與收藏。展示用途，不提供真實購物服務。</p><ul aria-label="NEXUS 使用技術"><li>Vue 3</li><li>Vite</li><li>GSAP</li><li>Embla Carousel</li></ul><div class="project-panel__links"><a href="https://nexus-gaming-ecommerce.vercel.app/" target="_blank" rel="noopener noreferrer">瀏覽 Demo <span aria-hidden="true">↗</span></a><a href="https://github.com/qwer070591-arch/nexus-gaming-ecommerce" target="_blank" rel="noopener noreferrer">專案文件 <span aria-hidden="true">↗</span></a></div></div></article>
+          <article class="project-panel__view" data-panel-project="neurova" hidden><div class="project-panel__media"><img src="./assets/neurova.png" alt="NEUROVA AI 分析管理平台的桌面總覽截圖" width="1440" height="900" /></div><div class="project-panel__body"><h3>NEUROVA</h3><p class="project-panel__lead">用清楚的圖表與流程整理示範數據。</p><p>純前端 AI 分析管理平台，涵蓋模型分析、使用量與費用、活動紀錄及使用者管理。所有數值與帳號皆為示範資料。</p><ul aria-label="NEUROVA 使用技術"><li>Vue 3</li><li>TypeScript</li><li>Pinia</li><li>ECharts</li></ul><div class="project-panel__links"><a href="https://neurova-dashboard-six.vercel.app/" target="_blank" rel="noopener noreferrer">瀏覽 Demo <span aria-hidden="true">↗</span></a><a href="https://github.com/qwer070591-arch/neurova-dashboard" target="_blank" rel="noopener noreferrer">專案文件 <span aria-hidden="true">↗</span></a></div></div></article>
+          <article class="project-panel__view" data-panel-project="mellow" hidden><div class="project-panel__media"><img src="./assets/mellow-dark.png" alt="mellow. 智慧家庭控制介面的深色模式桌面截圖" width="1440" height="900" /></div><div class="project-panel__body"><h3>mellow.</h3><p class="project-panel__lead">以溫和的視覺語言控制居家情境。</p><p>單螢幕介面整合房間切換、燈光、窗簾、溫控與情境。設定保存在本機瀏覽器，不連接真實 IoT 設備。</p><ul aria-label="mellow. 使用技術"><li>Vue 3</li><li>TypeScript</li><li>Pinia</li><li>SCSS</li></ul><div class="project-panel__links"><a href="https://mellow-smart-home.vercel.app/" target="_blank" rel="noopener noreferrer">瀏覽 Demo <span aria-hidden="true">↗</span></a><a href="https://github.com/qwer070591-arch/mellow-smart-home" target="_blank" rel="noopener noreferrer">專案文件 <span aria-hidden="true">↗</span></a></div></div></article>
+          <article class="project-panel__view" data-panel-project="isle" hidden><div class="project-panel__media"><img src="./assets/isle-and-wander.jpg" alt="ISLE &amp; WANDER 台灣旅遊探索網站的桌面首頁截圖" width="1440" height="900" /></div><div class="project-panel__body"><h3>ISLE &amp; WANDER</h3><p class="project-panel__lead">島嶼漫遊 — 台灣旅遊探索平台</p><p>以 Vue 3、TypeScript 開發的台灣旅遊探索平台，整合景點瀏覽、精選住宿、收藏與多日行程規劃，提供直覺的旅遊探索體驗。</p><ul aria-label="ISLE &amp; WANDER 使用技術"><li>Vue 3</li><li>Vite</li><li>TypeScript</li><li>Vue Router</li><li>Pinia</li></ul><div class="project-panel__links"><a href="https://isle-wander-ui.vercel.app/" target="_blank" rel="noopener noreferrer">瀏覽 Demo <span aria-hidden="true">↗</span></a><a href="https://github.com/qwer070591-arch/isle-wander-ui" target="_blank" rel="noopener noreferrer">專案文件 <span aria-hidden="true">↗</span></a></div></div></article>
+        </aside>
+        <noscript><div class="frame work-static">
+          <article><img src="./assets/nexus.png" alt="NEXUS 電競裝備展示網站的桌面首頁截圖" width="1440" height="900" /><h3>NEXUS</h3><p>以編輯式視覺呈現電競裝備的展示網站。商品探索、互動輪播，以及儲存在瀏覽器中的購物車與收藏。展示用途，不提供真實購物服務。</p><p>Vue 3 · Vite · GSAP · Embla Carousel</p><a href="https://nexus-gaming-ecommerce.vercel.app/">瀏覽 Demo</a><a href="https://github.com/qwer070591-arch/nexus-gaming-ecommerce">專案文件</a></article>
+          <article><img src="./assets/neurova.png" alt="NEUROVA AI 分析管理平台的桌面總覽截圖" width="1440" height="900" /><h3>NEUROVA</h3><p>用清楚的圖表與流程整理示範數據。純前端 AI 分析管理平台，涵蓋模型分析、使用量與費用、活動紀錄及使用者管理。所有數值與帳號皆為示範資料。</p><p>Vue 3 · TypeScript · Pinia · ECharts</p><a href="https://neurova-dashboard-six.vercel.app/">瀏覽 Demo</a><a href="https://github.com/qwer070591-arch/neurova-dashboard">專案文件</a></article>
+          <article><img src="./assets/mellow-dark.png" alt="mellow. 智慧家庭控制介面的深色模式桌面截圖" width="1440" height="900" /><h3>mellow.</h3><p>以溫和的視覺語言控制居家情境。單螢幕介面整合房間切換、燈光、窗簾、溫控與情境。設定保存在本機瀏覽器，不連接真實 IoT 設備。</p><p>Vue 3 · TypeScript · Pinia · SCSS</p><a href="https://mellow-smart-home.vercel.app/">瀏覽 Demo</a><a href="https://github.com/qwer070591-arch/mellow-smart-home">專案文件</a></article>
+          <article><img src="./assets/isle-and-wander.jpg" alt="ISLE &amp; WANDER 台灣旅遊探索網站的桌面首頁截圖" width="1440" height="900" /><h3>ISLE &amp; WANDER</h3><p>島嶼漫遊 — 台灣旅遊探索平台。以 Vue 3、TypeScript 開發的台灣旅遊探索平台，整合景點瀏覽、精選住宿、收藏與多日行程規劃，提供直覺的旅遊探索體驗。</p><p>Vue 3 · Vite · TypeScript · Vue Router · Pinia</p><a href="https://isle-wander-ui.vercel.app/">瀏覽 Demo</a><a href="https://github.com/qwer070591-arch/isle-wander-ui">專案文件</a></article>
+        </div></noscript>
+      </section>
+
+      <section class="skills-section" id="skills" aria-labelledby="skills-title"><div class="frame skills-layout"><div class="skills-heading reveal"><h2 id="skills-title">工具是手段，<br />體驗是目的。</h2><p>這些技術出現在上方的實際專案中。</p></div><div class="skills-list"><div class="skill-row reveal"><span>介面開發</span><p>Vue 3 <i>／</i> TypeScript <i>／</i> Vite</p></div><div class="skill-row reveal"><span>互動與動態</span><p>GSAP <i>／</i> Embla Carousel</p></div><div class="skill-row reveal"><span>狀態與圖表</span><p>Pinia <i>／</i> ECharts</p></div><div class="skill-row reveal"><span>樣式系統</span><p>SCSS <i>／</i> CSS</p></div></div></div></section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="frame contact-layout"><p class="contact-intro reveal">有下一個想法？</p><h2 id="contact-title" class="contact-title"><span>LET'S MAKE</span><span>IT REAL.</span></h2><div class="contact-bottom"><div class="contact-options"><a href="mailto:zy7765816@gmail.com">zy7765816@gmail.com <span aria-hidden="true">↗</span></a><a href="https://github.com/qwer070591-arch" target="_blank" rel="noopener noreferrer">瀏覽 GitHub <span aria-hidden="true">↗</span></a></div><a href="#top">回到頂部 <span aria-hidden="true">↑</span></a></div></div></section>
+    </main>
+    <footer class="site-footer"><div class="frame"><span>個人前端作品集</span><span>© <span id="year">2026</span></span></div></footer>
+  </body>
+</html>
