@@ -2,7 +2,7 @@
 
 **Junior Frontend Developer portfolio (V3)** — a single-page React site presenting four real, live Vue 3 projects, a résumé, project insights, and contact details.
 
-> **Status:** V3 exists only in this local working copy. It has not been committed, pushed, or deployed; the live Vercel site is still the previous version.
+> **Status:** V3 is on the `preview/v3-portfolio-20261119` branch and has a Vercel Preview deployment. The production site remains on the previous version from `main`.
 
 ## Features
 
@@ -70,7 +70,7 @@ The video is muted and looping, paused when off-screen, never started under redu
 
 ## Build output
 
-The Vite build writes to `dist/`. The previous hand-written static site was archived in `.backups/` before the switch. The repository tracks `dist/`, so the existing Vercel settings (no build command, output directory `dist`) keep working **if the freshly built `dist/` is committed**; alternatively set the Vercel Build Command to `npm run build`. Nothing has been deployed.
+The Vite build writes to `dist/`. The previous hand-written static site was archived locally in `.backups/` before the switch. The repository still tracks `dist/`. On the Preview branch, `vercel.json` runs `npm run build` and serves `dist/`; this branch-specific configuration does not change the production project's global settings.
 
 ## Responsive design, accessibility, and testing
 
@@ -117,4 +117,4 @@ Captured from the local V3 build with Playwright and compressed for repository u
 
 ## Deployment
 
-The portfolio is live at [personal-project-home.vercel.app](https://personal-project-home.vercel.app/) — **this is still the previous static version**; V3 has not been deployed. See "Build output" for how the Vercel settings relate to the new build.
+V3 Preview: [preview branch deployment](https://personal-project-home-git-preview-v3-por-5c2f92-qwer070591-arch.vercel.app/) (Vercel sign-in may be required). The [production site](https://personal-project-home.vercel.app/) still serves the previous static version from `main`. The Preview branch's `vercel.json` specifies `npm run build` and the `dist` output directory; no production deployment has been made for V3.
