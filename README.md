@@ -1,120 +1,145 @@
-# Personal Portfolio
+# Frontend Developer Portfolio
 
-**Junior Frontend Developer portfolio (V3)** — a single-page React site presenting four real, live Vue 3 projects, a résumé, project insights, and contact details.
+以 **React + TypeScript** 製作的個人作品集網站，展示四個可線上操作的 **Vue 3 前端專案**，以及響應式介面、動畫互動、資料視覺化與使用者體驗的實作成果。
 
-> **Status:** V3 is on the `preview/v3-portfolio-20261119` branch and has a Vercel Preview deployment. The production site remains on the previous version from `main`.
+**目前定位：Junior Frontend Developer／應徵前端工程師**
 
-## Features
+[**正式網站・Live Website**](https://personal-project-home.vercel.app/) · [**精選作品・Selected Works**](https://personal-project-home.vercel.app/#work) · [**原始碼・GitHub**](https://github.com/qwer070591-arch/personal-project-home)
 
-- **Loading screen:** On desktop and tablet, a first-visit 000 → 100 intro (2.7 s) with rotating words, progress bar, and a Skip button. Phones below 768 px and `prefers-reduced-motion` go straight to the Hero. The counter updates without a React render on every frame.
-- **Cinematic Hero:** a full-screen video layer driven by **hls.js** (native HLS on Safari) with dark overlay, bottom fade, GSAP entrance, a rotating role word (Vue 3 / TypeScript / Pinia / GSAP — technologies used in the projects), a scroll indicator, and a static fallback. The fallback is the custom **WebGL2 chrome sculpture** (a CSS illustration if WebGL2 is unavailable). Phones show the CSS sculpture first and initialize WebGL after about 1.5 s only while the Hero is visible; reduced-motion phones keep the CSS version. Desktop starts WebGL immediately. **No video is bundled or enabled by default** — see "Hero video and licensing".
-- **Selected Works:** asymmetric 7 / 5 / 5 / 7 Bento of the four real projects with a hover overlay, animated gradient border, image zoom, and a native modal `<dialog>` detail view that opens from the clicked card (screenshot, description, technologies, Demo/GitHub links, previous/next, Esc/backdrop/Close, focus return).
-- **Résumé and Skills:** the supplied background text and facts; each technology mapped to the projects that use it.
-- **Project insights (Journal):** four horizontal pills. Each statement restates that project's own README and links to the repository; there are no invented articles or dates.
-- **Explorations:** GSAP ScrollTrigger pinned heading with two parallax columns of crops of the owner's own project screenshots, plus a lightbox. Below 1024 px (and under reduced motion) it becomes a lighter horizontal scroll-snap strip with no pin or parallax.
-- **Stats:** counts derived from the real data (4 projects, 9 technologies, 3 TypeScript projects) plus the development workflow; no invented years, clients, or satisfaction scores.
-- **Contact / footer:** a cinematic glow (or a flipped video when one is configured), a GSAP horizontal marquee, gradient-hover CTAs, the real email address and GitHub profile. An optional Contact video is requested only when it approaches the viewport.
-- **Floating pill navigation** with one consistent active state for every item, including Contact.
+> **版本狀態：V3 已正式部署。** 正式站由 `main` 分支部署；[V3 預覽分支](https://github.com/qwer070591-arch/personal-project-home/tree/preview/v3-portfolio-20261119) 保留供比較。原參考影片未取得使用授權，因此正式版預設顯示 WebGL／CSS 雕塑，不載入該影片。
 
-## Tech Stack
+## 網站預覽
 
-React 19, Vite, TypeScript, Tailwind CSS 3, GSAP + ScrollTrigger, Framer Motion (`LazyMotion`), and hls.js (lazy-loaded only when a video URL is configured). Fonts: Inter, Instrument Serif, Noto Sans TC (Google Fonts, non-blocking). The technologies in the table below belong to the featured projects, not to this site.
+![桌機版 Hero：深色視覺、金屬雕塑與主要行動按鈕](docs/screenshots/hero-desktop.jpg)
 
-## Project structure
+![精選作品：四個專案的非對稱 Bento Grid](docs/screenshots/selected-work-desktop.jpg)
 
+[手機版 Hero](docs/screenshots/hero-mobile.jpg) · [手機版作品展示](docs/screenshots/selected-work-mobile.jpg) · [桌機作品詳情](docs/screenshots/project-dialog-desktop.jpg) · [手機作品詳情](docs/screenshots/project-dialog-mobile.jpg) · [Journal](docs/screenshots/journal-desktop.jpg) · [Explorations](docs/screenshots/explorations-desktop.jpg) · [Contact](docs/screenshots/contact-desktop.jpg)
+
+## 精選專案
+
+四個作品都提供線上展示與獨立 GitHub 儲存庫。這些專案本身以 Vue 3 為主，**本作品集網站則採用 React 19**。
+
+| 專案 | 作品重點 | 主要技術 | 連結 |
+| --- | --- | --- | --- |
+| **NEXUS** — 電競商品展示 | 商品探索、輪播、瀏覽器儲存的購物車與收藏；不提供真實結帳 | Vue 3、Vite、GSAP、Embla Carousel | [Demo](https://nexus-gaming-ecommerce.vercel.app/) · [Code](https://github.com/qwer070591-arch/nexus-gaming-ecommerce) |
+| **NEUROVA** — AI 數據儀表板 | 模型分析、使用量與費用圖表、活動紀錄及模擬使用者管理 | Vue 3、TypeScript、Pinia、ECharts | [Demo](https://neurova-dashboard-six.vercel.app/) · [Code](https://github.com/qwer070591-arch/neurova-dashboard) |
+| **mellow.** — 智慧居家介面 | 房間切換、燈光、窗簾、溫控和情境控制；不連接真實 IoT 設備 | Vue 3、TypeScript、Pinia、SCSS | [Demo](https://mellow-smart-home.vercel.app/) · [Code](https://github.com/qwer070591-arch/mellow-smart-home) |
+| **ISLE & WANDER** — 台灣旅遊探索 | 景點與住宿瀏覽、收藏、多日行程規劃；不提供訂房與付款 | Vue 3、TypeScript、Vue Router、Pinia | [Demo](https://isle-wander-ui.vercel.app/) · [Code](https://github.com/qwer070591-arch/isle-wander-ui) |
+
+作品文案、圖片與連結統一維護於 [`src/data/content.ts`](src/data/content.ts)，避免畫面與文件資訊分散。Journal 的內容基於專案實作紀錄，不是虛構文章；Stats 由作品資料計算，不使用虛構經歷或客戶數據。
+
+## 網站亮點
+
+- **Cinematic Hero**：深色視覺、GSAP 文字進場、技術詞輪播與 WebGL2 金屬雕塑；無 WebGL 時使用 CSS 備援。
+- **Floating Navigation**：置中的膠囊式導覽，支援目前區塊高亮、鍵盤操作及頁內跳轉。
+- **Selected Works**：桌機採 `7 / 5 / 5 / 7` 非對稱 Bento 排版；作品卡片可開啟詳情對話框，查看截圖、技術與 Demo / GitHub。
+- **Project Insights / Journal**：四則來自實際開發過程的技術重點，以橫向卡片呈現。
+- **Explorations**：GSAP ScrollTrigger 視差畫廊與圖片 Lightbox；平板、手機及 reduced-motion 使用較輕量的捲動展示。
+- **About / Skills / Stats**：真實的學習背景、前端技術分類，以及從專案資料計算的統計。
+- **Contact / Footer**：聯絡連結、漸層互動及跑馬燈；背景影片為可選功能。
+
+### RWD、互動與無障礙
+
+- 桌機、平板與手機分別調整排版；作品詳情支援 Enter、方向鍵、Escape、焦點返回及背景關閉。
+- 對 `prefers-reduced-motion` 提供動畫替代：不強制顯示 Loading Screen、停用主要視差與跑馬燈，手機保留 CSS 雕塑。
+- 手機首次進入直接顯示 Hero；一般模式約 1.5 秒後、且 Hero 可見時才初始化 WebGL，以降低首屏阻塞。
+- 桌機／平板首次瀏覽保留可略過的 Loading Screen；非首屏資源按需載入。
+- `index.html` 內保留 `<noscript>` 內容，讓停用 JavaScript 的訪客仍可取得作品介紹、主要連結與聯絡方式。
+
+## 技術架構
+
+| 類別 | 技術 |
+| --- | --- |
+| 核心架構 | React 19、TypeScript、Vite |
+| UI 與排版 | Tailwind CSS 3、CSS Custom Properties |
+| 動態效果 | GSAP、ScrollTrigger、Framer Motion（LazyMotion） |
+| 媒體與視覺 | WebGL2、自訂 Chrome Sculpture、hls.js（可選 HLS 影片） |
+| 字體 | Inter、Instrument Serif、Noto Sans TC |
+| 測試與部署 | TypeScript Typecheck、Playwright（驗收使用）、Lighthouse（驗收使用）、GitHub、Vercel |
+
+### 專案結構
+
+```text
+personal-project-home/
+├── index.html                 # Vite 入口與 no-JS 備援
+├── src/
+│   ├── App.tsx                # 區塊組合、Loading、Lazy Loading
+│   ├── components/            # Hero、Works、About、Journal、Explorations 等
+│   ├── data/content.ts        # 作品、技能、履歷及統計資料
+│   ├── hooks/                 # 導覽區塊與原生 Dialog 行為
+│   └── lib/chrome.ts          # WebGL2 金屬雕塑
+├── public/                    # Favicon 與作品圖片素材
+├── docs/screenshots/          # 網站驗收截圖
+├── dist/                      # Vite 產生的正式建置輸出
+├── vercel.json                # Vercel 建置設定
+├── README.md
+└── DESIGN.md                  # 視覺設計與互動規則
 ```
-index.html              entry (includes a <noscript> fallback with the four projects and links)
-public/                 favicon and project screenshots (PNG/JPG originals + the WebP files the app uses)
-src/
-  App.tsx               page composition, first-visit loading logic, lazy chunks
-  data/content.ts       single source of truth for all real content
-  components/           Hero, SelectedWorks, ProjectDialog, About, Journal, Explorations, Lightbox, Stats, Contact, ...
-  hooks/                useActiveSection, useNativeDialog
-  lib/chrome.ts         WebGL2 chrome sculpture (ported from the original static build)
-dist/                   production build output (see "Build output")
+
+## 本機啟動
+
+建議使用符合 `package.json` 相依套件要求的 Node.js 版本（開發驗收使用 Node.js 24）。
+
+```bash
+git clone https://github.com/qwer070591-arch/personal-project-home.git
+cd personal-project-home
+npm ci
+npm run dev
 ```
 
-## Featured Projects
+Vite 會輸出本機開發網址。驗證正式建置：
 
-| Project | Description | Project technologies | Live Demo | Repository |
-| --- | --- | --- | --- | --- |
-| **NEXUS** | Gaming equipment showcase with product discovery, an interactive carousel, and browser-saved cart and favorites. Demo only; no real checkout. | Vue 3, Vite, JavaScript, CSS, GSAP, Embla Carousel | [Open demo](https://nexus-gaming-ecommerce.vercel.app/) | [GitHub](https://github.com/qwer070591-arch/nexus-gaming-ecommerce) |
-| **NEUROVA** | Frontend AI analytics dashboard with charts, activity logs, and simulated user management. All account and usage data is demonstrative. | Vue 3, TypeScript, Vite, Vue Router, Pinia, ECharts, Tailwind CSS | [Open demo](https://neurova-dashboard-six.vercel.app/) | [GitHub](https://github.com/qwer070591-arch/neurova-dashboard) |
-| **mellow.** | Smart-home interface for rooms, lighting, curtains, temperature, and scenes. Browser-saved settings do not control real IoT devices. | Vue 3, TypeScript, Vite, Vue Router, Pinia, SCSS | [Open demo](https://mellow-smart-home.vercel.app/) | [GitHub](https://github.com/qwer070591-arch/mellow-smart-home) |
-| **ISLE & WANDER** | Taiwan travel discovery with destinations, stays, favorites, and a multi-day itinerary planner. No booking or payment. | Vue 3, TypeScript, Vite, Vue Router, Pinia | [Open demo](https://isle-wander-ui.vercel.app/) | [GitHub](https://github.com/qwer070591-arch/isle-wander-ui) |
-
-Descriptions and technology lists were checked against the project READMEs. The Demo links were opened during the earlier pre-release review and were not re-verified in V3.
-
-## Getting Started
-
-Requires Node.js 20.19+ (tested with Node 24).
-
-```powershell
-npm install
-npm run dev          # Vite dev server
-npm run typecheck    # tsc -b --noEmit
-npm run build        # type-check + production build into dist/
-npm run preview      # serve the built dist/
+```bash
+npm run typecheck
+npm run build
+npm run preview
 ```
 
-## Hero video and licensing
+`npm run build` 執行 TypeScript 編譯檢查與 Vite 建置，輸出到 `dist/`。`dist/` 是產物目錄；應以 `src/`、`public/`、根目錄 `index.html` 為主要修改來源，不要直接手動修改編譯結果。
 
-The original reference used a third-party Mux HLS stream. It could not be used: the URL returned **HTTP 403** when checked, and the permission to publish it is unknown. The Hero and Contact video layers are therefore **off by default**. To enable them, set an HLS (`.m3u8`) or MP4 URL **that you have the right to publish**:
+## 可選 Hero 影片與授權
 
-```powershell
-# .env.local (not committed)
+網站已實作 hls.js（Safari 支援原生 HLS 時使用原生播放）及 MP4／HLS 背景影片路徑，但**正式版預設未設定影片**。原參考 Mux 串流回傳 HTTP 403，且沒有確認發布授權，因此沒有將它內建到網站。
+
+如有合法授權的影片，建立不提交到 Git 的 `.env.local`：
+
+```dotenv
 VITE_HERO_HLS_URL=https://example.com/your-licensed-video.m3u8
 ```
 
-The video is muted and looping, paused when off-screen, never started under reduced motion, and any error falls back to the sculpture. During development the success path was verified with Mux's public test stream (test only, not shipped).
+也可使用具備適當權利的 MP4 網址。媒體播放失敗或使用者偏好減少動畫時，系統使用雕塑視覺備援；Contact 的可選影片會延後至接近可視範圍才載入。**Vite 的 `VITE_*` 變數會進入瀏覽器端建置，請勿放入密碼、金鑰或私密連結。**
 
-## Build output
+## 測試與品質
 
-The Vite build writes to `dist/`. The previous hand-written static site was archived locally in `.backups/` before the switch. The repository still tracks `dist/`. On the Preview branch, `vercel.json` runs `npm run build` and serves `dist/`; this branch-specific configuration does not change the production project's global settings.
+V3 發布前已由 Codex / Claude Code 工作流程進行本機檢查與獨立驗收：
 
-## Responsive design, accessibility, and testing
+- `npm run typecheck`、`npm run build`、`git diff --check` 通過。
+- Playwright Chromium 檢查 **1440×900、1024×768、768×1024、390×844、360×800**。
+- 驗證四個作品 Dialog、方向鍵切換、Escape、焦點返回、Lightbox、導航狀態、圖片及水平溢出。
+- 測試 reduced-motion、無 WebGL 與模擬 HLS HTTP 403 的備援行為；預覽環境亦完成主要互動檢查。
 
-After the performance pass, Playwright Chromium checked the production build at 1440 × 900, 1024 × 768, 768 × 1024, 390 × 844, and 360 × 800: four project dialogs and their links, arrow navigation, Escape, lightbox, Contact navigation state, refresh state, images, console errors, and horizontal overflow. A touch tap on the mobile project card and focus return after Escape passed. Reduced motion skips the intro; a forced WebGL-unavailable test showed the CSS fallback. A separate temporary build with a simulated HTTP 403 HLS source kept the Hero sculpture visible and delayed the Contact video request until it approached the viewport. These automated checks do not replace physical-device or screen-reader testing.
+Lighthouse 13.6.0／Chrome 157、本機 Production Build 模擬節流，三次測量的中位數（最後一次效能優化後）：
 
-Lighthouse 13.6.0 with headless Chrome 157, simulated throttling, and the same local production-preview setup was run three times per form factor before and after the pass. The table shows medians:
+| 指標 | 桌機 | 手機 |
+| --- | ---: | ---: |
+| Performance | 100 | 93 |
+| FCP | 205 ms | 755 ms |
+| LCP | 205 ms | 755 ms |
+| TBT | 2 ms | 306 ms |
+| CLS | 0.03 | 0.00 |
 
-| Form factor | Performance | FCP | LCP | TBT | CLS |
-| --- | --- | --- | --- | --- | --- |
-| Desktop before → after | 100 → 100 | 207 → 205 ms | 207 → 205 ms | 4 → 2 ms | 0.05 → 0.03 |
-| Mobile before → after | 96 → 93 | 757 → 755 ms | 757 → 755 ms | 220 → 306 ms | 0.01 → 0.00 |
+**限制：** 手機效能優化的 Lighthouse 分數並未比前次基準提升（96 → 93）；兩次 LCP 對應不同內容，不能直接拿來判定 Hero 的顯示速度。以上是實驗室條件測試，不能代表所有實際裝置。實體手機、Safari、Firefox 與螢幕閱讀器尚未完整驗證；也不宣稱已取得 WCAG 符合性認證。
 
-The baseline mobile final screenshot still showed the loading screen; the final mobile screenshot showed the usable Hero. The two LCP values therefore represent different content and must not be treated as a direct Hero-speed comparison. The mobile Lighthouse score did **not** improve in this independent run. Accessibility was 100, Best Practices 100, and SEO 92 in these runs. Lab results vary with browser and GPU conditions; physical devices, Safari, Firefox, and screen readers were not tested. This is not a WCAG conformance claim.
+## 部署
 
-## Screenshots
+- **Production**：[personal-project-home.vercel.app](https://personal-project-home.vercel.app/) — V3 已合併至 `main` 並完成 Vercel Production 部署。
+- **Preview**：[V3 Preview](https://personal-project-home-git-preview-v3-por-5c2f92-qwer070591-arch.vercel.app/) — 預覽環境可能需要 Vercel 登入。
+- **GitHub**：[來源儲存庫](https://github.com/qwer070591-arch/personal-project-home)。
+- **Build Command**：`npm run build`；**Output Directory**：`dist`（參考 [`vercel.json`](vercel.json)）。
 
-Captured from the local V3 build with Playwright and compressed for repository use.
+正式發佈與原始碼修改應透過 Git 版本控制；請先在 Preview 驗收較大的視覺或互動改動，再更新正式站。
 
-**Hero**
+---
 
-![Desktop Hero: italic serif headline, role line, CTAs and the WebGL chrome sculpture under the pill navigation](docs/screenshots/hero-desktop.jpg)
-
-![Mobile Hero with the sculpture above the text](docs/screenshots/hero-mobile.jpg)
-
-**Selected Works**
-
-![Selected Works Bento with the four projects](docs/screenshots/selected-work-desktop.jpg)
-
-![Mobile Selected Works](docs/screenshots/selected-work-mobile.jpg)
-
-**Project detail dialog**
-
-![NEUROVA detail dialog](docs/screenshots/project-dialog-desktop.jpg)
-
-![Mobile project detail dialog](docs/screenshots/project-dialog-mobile.jpg)
-
-**Project insights, Explorations, Contact**
-
-![Project insights pills](docs/screenshots/journal-desktop.jpg)
-
-![Explorations parallax gallery](docs/screenshots/explorations-desktop.jpg)
-
-![Contact with marquee](docs/screenshots/contact-desktop.jpg)
-
-## Deployment
-
-V3 Preview: [preview branch deployment](https://personal-project-home-git-preview-v3-por-5c2f92-qwer070591-arch.vercel.app/) (Vercel sign-in may be required). The [production site](https://personal-project-home.vercel.app/) still serves the previous static version from `main`. The Preview branch's `vercel.json` specifies `npm run build` and the `dist` output directory; no production deployment has been made for V3.
+本網站用於展示個人前端開發能力與真實專案，並持續改進功能、無障礙體驗與效能。
