@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: 0 0% 4%;
+  --surface: 0 0% 8%;
+  --text: 0 0% 96%;
+  --muted: 0 0% 53%;
+  --stroke: 0 0% 12%;
+  --accent: 0 0% 96%;
+  --accent-grad: linear-gradient(90deg, #89aacc 0%, #4e85bf 100%);
+  --blue-1: #89aacc;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+  html.dialog-open, html.is-loading { overflow: hidden; }
+  body { @apply bg-bg font-body text-text-primary antialiased; overflow-x: clip; }
+  img { display: block; max-width: 100%; }
+  em { @apply font-display italic font-normal; }
+  ::selection { background: hsl(var(--text)); color: hsl(var(--bg)); }
+  :focus-visible { outline: 2px solid var(--blue-1); outline-offset: 4px; }
+  section[id] { scroll-margin-top: 0; }
+}
+
+@layer utilities {
+  .accent-gradient { background: var(--accent-grad); }
+  .text-accent-gradient { background: linear-gradient(90deg, #dfe7f0, #89aacc 70%, #4e85bf); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .animate-scroll-down { animation: scroll-down 1.5s ease-in-out infinite; }
+  .animate-role-fade-in { animation: role-fade-in .4s ease-out; }
+  .animate-gradient-shift { background-size: 200% 200%; animation: gradient-shift 6s ease infinite; }
+}
+
+@keyframes scroll-down { from { transform: translateY(-100%); } to { transform: translateY(200%); } }
+@keyframes role-fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes dialog-in { from { opacity: 0; transform: scale(.86) translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sculpture-float { from { transform: translateY(-8px) rotate(-2deg); } to { transform: translateY(9px) rotate(2deg); } }
+
+@layer components {
+  .shell { width: min(100% - 2 * clamp(20px, 5vw, 64px), 1200px); margin-inline: auto; }
+  /* Gradient ring: decorative border appearing on hover/focus; needs an opaque child span. */
+  .glow-ring { position: relative; isolation: isolate; }
+  .glow-ring::before { content: ""; position: absolute; inset: -2px; z-index: -1; border-radius: inherit; background: var(--accent-grad); opacity: 0; transition: opacity .3s ease; }
+  .glow-ring:hover::before, .glow-ring:focus-visible::before { opacity: 1; }
+  .glow-ring--anim::before { background-size: 200% 200%; animation: gradient-shift 6s ease infinite; }
+  .btn { @apply inline-flex rounded-full no-underline transition-transform duration-300; }
+  .btn > span { @apply inline-flex min-h-12 items-center gap-2 whitespace-nowrap rounded-full px-7 text-sm font-medium transition-colors duration-300; }
+  .btn--solid > span { @apply border-2 border-text-primary bg-text-primary text-bg; }
+  .btn--outline > span { @apply border-2 border-stroke bg-bg text-text-primary; }
+  .btn:hover > span, .btn:focus-visible > span { border-color: transparent; }
+  .btn--solid:hover > span, .btn--solid:focus-visible > span { @apply bg-bg text-text-primary; }
+  .btn--sm > span { @apply min-h-11 px-5; }
+  .btn--lg > span { @apply min-h-14 px-8 text-[15px]; }
+  @media (hover: hover) { .btn:hover { transform: scale(1.04); } }
+
+  .sculpture-ring { position: absolute; display: block; border-radius: 50%; border: clamp(32px, 6vw, 90px) solid transparent; box-shadow: inset -14px 16px 18px rgba(255,255,255,.14), inset 18px -20px 25px #000, 18px 20px 20px rgba(0,0,0,.8); }
+  .native-dialog { padding: 0; max-width: none; overflow: auto; overscroll-behavior: contain; color: hsl(var(--text)); background: hsl(var(--surface)); border: 1px solid #2a2a2a; box-shadow: 0 40px 120px rgba(0,0,0,.8); }
+  .native-dialog::backdrop { background: rgba(10,10,10,.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .native-dialog[open] { animation: dialog-in .55s cubic-bezier(.16,1,.3,1) both; }
+  .native-dialog[open]::backdrop { animation: fade-in .35s ease both; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
